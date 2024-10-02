@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Inter, Roboto_Mono, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 
-export const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
-
-export const roboto_mono = Roboto_Mono({
-  subsets: ["latin"],
-  display: "swap",
-});
-export const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
@@ -41,13 +32,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${geistMont.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${geistMont.variable} ${inter.className} font-sans antialiased`}
       >
         {children}
       </body>
