@@ -33,26 +33,21 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-            {/* <div className="aspect-w-9 aspect-h-16 rounded-xl overflow-hidden">
+          <div className="w-full flex justify-end max-w-md lg:max-w-lg xl:max-w-xl">
+            <div className="aspect-w-9 aspect-h-16 rounded-xl overflow-hidden">
               <video
-                className="w-full h-full object-cover"
+                className="m-10 rounded-xl w-auto max-h-[600px] object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
-                aria-label="Promotional video for our food delivery app"
+                aria-label="Demo video for our UK Tasty app"
               >
-                <source
-                  src={
-                    "https://youtube.com/shorts/mJSJcOYIdYA?si=zcGjQJRChOnIK8Uf"
-                  }
-                  type="video/mp4"
-                />
+                <source src={"/demo.mp4"} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </div> */}
-            <div className="aspect-w-9 aspect-h-16 rounded-xl overflow-hidden my-3 flex justify-center items-center">
+            </div>
+            {/* <div className="aspect-w-9 aspect-h-16 rounded-xl overflow-hidden my-3 flex justify-center items-center">
               <iframe
                 width="361"
                 height="642"
@@ -62,7 +57,7 @@ const Hero = () => {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

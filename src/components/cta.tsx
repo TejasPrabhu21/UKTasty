@@ -9,7 +9,8 @@ const Cta = () => {
       id="download"
       className="w-full py-12 md:py-24 lg:py-32 bg-primary"
     >
-      <div className="container mx-auto px-4 md:px-6 text-center">
+      <div className="container mx-auto px-4 md:px-6 text-center flex flex-col items-center ">
+        <ArrowDown className="h-6 w-6 text-primary-foreground animate-bounce mt-4" />
         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-primary-foreground mb-4">
           Ready to order?
         </h2>
@@ -34,7 +35,6 @@ const Cta = () => {
           <p className="text-sm text-primary-foreground">
             Available on Google Play Store
           </p>
-          <ArrowDown className="h-6 w-6 text-primary-foreground animate-bounce mt-4" />
         </div>
       </div>
     </section>

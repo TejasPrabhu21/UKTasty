@@ -17,10 +17,10 @@ const Header = () => {
         <Link className="flex items-center justify-center" href="#">
           <Image
             src={icon}
-            width={40}
-            height={40}
+            width={80}
+            height={80}
             alt="Kinara Icon"
-            className="w-10 h-10"
+            className="w-12 h-12"
           />
           <span className="ml-2 text-xl md:text-2xl font-bold text-primary font-sans">
             UK Tasty
