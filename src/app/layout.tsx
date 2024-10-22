@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import AuthProvider from "@/components/auth/AuthProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,7 +39,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta name="google-site-verification" content="jI_12UAqARkym4oeZGitF0_a1O77NWPfdqQJN81Opvs" />
+        <meta
+          name="google-site-verification"
+          content="jI_12UAqARkym4oeZGitF0_a1O77NWPfdqQJN81Opvs"
+        />
         <meta
           name="google-site-verification"
           content="AedGMOoYobY0kpN0Cn6FeOdyATaGQpImqao992VrYhs"
@@ -47,7 +51,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${geistMont.variable} ${inter.className} font-sans antialiased`}
       >
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
