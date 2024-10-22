@@ -13,12 +13,15 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import icon from "@/assets/icon.png";
-import { SidebarData } from "@/lib/types";
+import { IUserData, SidebarData } from "@/lib/types";
 
 export function AppSidebar({
   data,
+  user,
   ...props
-}: { data: SidebarData } & React.ComponentProps<typeof Sidebar>) {
+}: { data: SidebarData; user: IUserData } & React.ComponentProps<
+  typeof Sidebar
+>) {
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -59,7 +62,7 @@ export function AppSidebar({
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   );

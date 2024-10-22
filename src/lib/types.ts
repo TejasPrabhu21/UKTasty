@@ -1,7 +1,7 @@
-export interface IAdminData {
+export interface IUserData {
   name: string;
   email: string;
-  avatar: string;
+  role: string;
 }
 
 export interface INavItem {
@@ -11,6 +11,22 @@ export interface INavItem {
 }
 
 export interface SidebarData {
-  user: IAdminData;
   navItems: INavItem[];
+}
+declare module "next-auth" {
+  interface User {
+    role: string;
+  }
+
+  interface Session {
+    user: {
+      role: string;
+      email: string;
+      name: string;
+    };
+  }
+
+  interface JWT {
+    role: string;
+  }
 }
