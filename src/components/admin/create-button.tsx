@@ -13,7 +13,7 @@ const CreateButton = ({
 }) => {
   const createUser = () => {
     // Logic to create a new user
-    console.log("Create new user");
+    console.log("Create new user", entity, columns);
   };
   return (
     <Button onClick={() => createUser()} variant={"default"} className="mb-4">
