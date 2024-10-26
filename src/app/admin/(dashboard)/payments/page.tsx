@@ -1,22 +1,19 @@
 import { DataTable } from "@/components/admin/data-table";
 import React from "react";
-import { columns, IPayment } from "./columns";
+import { columns } from "./columns";
+import { IPayment } from "@/lib/types";
+import { fetchPayments } from "@/lib/actions";
 
 async function getData(): Promise<IPayment[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-  ];
+  const data = await fetchPayments();
+  return data;
 }
+
 const Payments = async () => {
   const data = await getData();
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto">
+      <h2 className="text-4xl font-bold my-5">Payments</h2>
       <DataTable columns={columns} data={data} />
     </div>
   );

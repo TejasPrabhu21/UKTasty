@@ -1,23 +1,19 @@
-import { IOrders, columns } from "./columns";
+import { IOrders } from "@/lib/types";
+import { columns } from "./columns";
 import { DataTable } from "@/components/admin/data-table";
+import { fetchOrders } from "@/lib/actions";
 
 async function getData(): Promise<IOrders[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-  ];
+  const data = await fetchOrders();
+  return data;
 }
 
 export default async function Orders() {
   const data = await getData();
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto">
+      <h2 className="text-4xl font-bold my-5">Orders</h2>
       <DataTable columns={columns} data={data} />
     </div>
   );

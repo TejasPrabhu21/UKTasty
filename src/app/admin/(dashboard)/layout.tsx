@@ -19,9 +19,9 @@ const SideNavData = {
       url: "/admin/products",
     },
     {
-      title: "Users",
+      title: "Customers",
       icon: <Users className="size-4" />,
-      url: "/admin/users",
+      url: "/admin/customers",
     },
     {
       title: "Orders",

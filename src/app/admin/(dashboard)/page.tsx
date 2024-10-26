@@ -10,9 +10,9 @@ const Overview = () => {
       url: "/admin/products",
     },
     {
-      title: "Users",
+      title: "Customers",
       icon: Users,
-      url: "/admin/users",
+      url: "/admin/customers",
     },
     {
       title: "Orders",
