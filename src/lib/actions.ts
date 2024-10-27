@@ -149,3 +149,66 @@ export const editProduct = async (formData: FormData) => {
   }
   return data;
 };
+
+/**
+ * Add Function
+ */
+export const addProduct = async (formData: FormData) => {
+  console.log(formData);
+  const productName = formData.get("Product_name") as string | null;
+  const productWeight = Number(formData.get("Product_weight"));
+  const productPrice = Number(formData.get("Product_price"));
+  const productImage = formData.get("image") as File;
+
+  if (!productName || !productWeight || !productPrice || !productImage) {
+    throw new Error("Missing required fields.");
+  }
+
+  const newProduct: Omit<IProduct, "id"> = {
+    Product_name: productName,
+    Product_weight: productWeight,
+    Product_price: productPrice,
+  };
+
+  const { data, error } = await supabase
+    .from("Product")
+    .insert(newProduct)
+    .select();
+
+  if (error) {
+    console.error("Error adding product data:", error.message);
+    throw new Error(error.message);
+  }
+
+  console.log(data);
+
+  if (data) {
+    const fileName = `${(data as IProduct[])[0].id}`;
+    const publicUrl = await uploadProductImage(fileName, productImage);
+    return publicUrl;
+  }
+  return data;
+};
+
+const uploadProductImage = async (fileName: string, productImage: File) => {
+  console.log("Image upload -------------");
+  const { data: imageData, error } = await supabase.storage
+    .from("product-images")
+    .upload(fileName, productImage);
+
+  if (error) {
+    console.error("Error uploading image:", error);
+    throw error;
+  }
+  console.log("publicUrlData", imageData);
+
+  if (imageData) {
+    const { data: publicUrlData } = supabase.storage
+      .from("product-images")
+      .getPublicUrl(fileName);
+
+    console.log(publicUrlData);
+
+    return publicUrlData.publicUrl;
+  }
+};
